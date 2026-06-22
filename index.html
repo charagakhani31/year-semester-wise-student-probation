@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="/app.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <title>Student-Probabtion</title>
+  <style>
+    .year {
+        margin-left: 40px;
+        display: flex;
+        gap: 20px;
+    }
+    
+    .semester {
+        margin-left: 40px;
+        display: flex;
+        gap: 20px;
+    }
+    .year h3:hover {
+        background-color: #2ECC71; 
+    }
+
+    .semester h3:hover {
+        background-color: #2ECC71; 
+    }
+
+    .table table {
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .table th, td {
+      border: 1px solid #808080;
+      padding: 8px;
+      text-align: left;
+    }
+    .table th {
+      background-color: #f2f2f2;
+    }
+
+  </style>
+</head>
+
+<body x-data="App()" x-init="getYear()">
+    <div class="year">
+        <template x-for="years in year" :key="years.year">
+            <h3 x-text="years.year" @click="getSemester(years.year)"></h3>
+        </template>
+    </div> 
+    <div class="semester">
+        <template x-for="semesters in semester" :key="semesters.semester">
+            <h3 x-text="semesters.semester" @click="getProbation(semesters.semester)"></h3>
+        </template>
+    </div>
+    <div class="probation">
+        <table class="table" x-show="showTable">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>year</th>
+                <th>semester</th>
+                <th>gpa</th>
+            </tr>
+            </thead>
+
+        <tbody>
+        <template x-for="prob in probation" :key="prob.id">
+            <tr>
+                <td x-text="prob.id"></td>
+                <td x-text="prob.name"></td>
+                <td x-text="prob.year"></td>
+                <td x-text="prob.semester"></td>
+                <td x-text="prob.gpa"></td>
+            </tr>
+        </template>
+        </tbody>
+        </table>
+    </div>
+</body>
+</html>
