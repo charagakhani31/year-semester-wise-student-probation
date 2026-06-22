@@ -26,6 +26,11 @@
         background-color: #2ECC71; 
     }
 
+    .active {
+    background-color: #2ECC71;
+    color: white;
+}
+
     .table table {
       border-collapse: collapse;
       margin-top: 15px;
@@ -44,13 +49,15 @@
 
 <body x-data="App()" x-init="getYear()">
     <div class="year">
-        <template x-for="years in year" :key="years.year">
-            <h3 x-text="years.year" @click="getSemester(years.year)"></h3>
+        <template x-for="y in year" :key="y.year">
+            <h3 x-text="y.year" @click="getSemester(y.year)"
+            :class="{ active: selectedYear == y.year }" ></h3>
         </template>
     </div> 
     <div class="semester">
-        <template x-for="semesters in semester" :key="semesters.semester">
-            <h3 x-text="semesters.semester" @click="getProbation(semesters.semester)"></h3>
+        <template x-for="s in semester" :key="s.semester">
+            <h3 x-text="s.semester" @click="getProbation(s.semester)"
+            :class="{ active: selectedSemester == s.semester }"></h3>
         </template>
     </div>
     <div class="probation">
