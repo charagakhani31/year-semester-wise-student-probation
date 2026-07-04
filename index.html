@@ -35,7 +35,7 @@
       border-collapse: collapse;
       margin-top: 15px;
     }
-   .table th, .table td {
+    .table th, .table td {
       border: 1px solid #808080;
       padding: 8px;
       text-align: left;
@@ -54,32 +54,34 @@
             :class="{ active: selectedYear == y.year }" ></h3>
         </template>
     </div> 
+
     <div class="semester">
         <template x-for="s in semester" :key="s.semester">
             <h3 x-text="s.semester" @click="getProbation(s.semester)"
             :class="{ active: selectedSemester == s.semester }"></h3>
         </template>
     </div>
+    
     <div class="probation">
         <table class="table" x-show="showTable">
             <thead>
             <tr>
-                <th>id</th>
+                <th>regno</th>
                 <th>name</th>
                 <th>year</th>
                 <th>semester</th>
-                <th>gpa</th>
+                <th>semester_gpa</th>
             </tr>
             </thead>
 
         <tbody>
-        <template x-for="prob in probation" :key="prob.id">
+        <template x-for="prob in probation" :key="prob.regno">
             <tr>
-                <td x-text="prob.id"></td>
+                <td x-text="prob.regno"></td>
                 <td x-text="prob.name"></td>
                 <td x-text="prob.year"></td>
                 <td x-text="prob.semester"></td>
-                <td x-text="prob.gpa"></td>
+                <td x-text="prob.semester_gpa"></td>
             </tr>
         </template>
         </tbody>
