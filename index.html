@@ -7,6 +7,11 @@
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <title>Student-Probabtion</title>
   <style>
+
+    h1 {
+        display: flex;
+        justify-content: center;
+    }
     .year {
         margin-left: 40px;
         display: flex;
@@ -48,6 +53,9 @@
 </head>
 
 <body x-data="App()" x-init="getYear()">
+
+    <h1>Year and Semester-wise Students on Probation</h1>
+
     <div class="year">
         <template x-for="y in year" :key="y.year">
             <h3 x-text="y.year" @click="getSemester(y.year)"
@@ -66,11 +74,11 @@
         <table class="table" x-show="showTable">
             <thead>
             <tr>
-                <th>regno</th>
-                <th>name</th>
-                <th>year</th>
-                <th>semester</th>
-                <th>semester_gpa</th>
+                <th>Reg No</th>
+                <th>Student Name</th>
+                <th>Year</th>
+                <th>Semester</th>
+                <th>Semester_GPA</th>
             </tr>
             </thead>
 
